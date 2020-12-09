@@ -2,12 +2,12 @@ use crate::types::*;
 use std::mem;
 use std::slice;
 
-pub const FLOW_TNL_F_UDPIF : u16 =  (1 << 4);
+pub const FLOW_TNL_F_UDPIF : u16 =  1 << 4;
 
 /* Fragment bits, used for IPv4 and IPv6, always zero for non-IP flows. */
-pub const FLOW_NW_FRAG_ANY: u8 = (1 << 0); /* Set for any IP frag. */
-pub const FLOW_NW_FRAG_LATER: u8 =  (1 << 1); /* Set for IP frag with nonzero offset. */
-pub const FLOW_NW_FRAG_MASK: u8 =  (FLOW_NW_FRAG_ANY | FLOW_NW_FRAG_LATER);
+pub const FLOW_NW_FRAG_ANY: u8 = 1 << 0; /* Set for any IP frag. */
+pub const FLOW_NW_FRAG_LATER: u8 =  1 << 1; /* Set for IP frag with nonzero offset. */
+pub const FLOW_NW_FRAG_MASK: u8 =  FLOW_NW_FRAG_ANY | FLOW_NW_FRAG_LATER;
 
 #[derive ( Copy, Clone, Default )]
 #[repr(C)]

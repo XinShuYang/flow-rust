@@ -585,7 +585,7 @@ pub fn parse_metadata(md: &pkt_metadata, packet_type_be: u32, mf: &mut mf_ctx) -
                 let offset = offsetOf!(Flow, tunnel) + offsetOf!(flow_tnl, metadata)
                                 + offsetOf!(Tun_metadata, opts) + offsetOf!(tun_md_opts, gnv);
                 mf.miniflow_push_words_(offset, md.tunnel.metadata.opts.as_u64_slice(),
-                                        DIV_ROUND_UP!(unsafe{(md.tunnel.metadata.present.len as usize)}, mem::size_of::<u64>()));
+                                        DIV_ROUND_UP!(unsafe{md.tunnel.metadata.present.len as usize}, mem::size_of::<u64>()));
             }
         }
     }

@@ -32,6 +32,9 @@ Build flow rust as a shared library.
 ```
 $ git clone https://github.com/williamtu/flow-rust.git
 $ cd flow-rust
+$ rustup install nightly
+$ cargo +nightly install racer
+$ rustup override set nightly
 $ cargo build --release
 $ cp ./target/release/libovsflowrust.so /lib/x86_64-linux-gnu/
 $ ldconfig
